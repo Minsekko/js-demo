@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h2 id="ex01" style="cursor: pointer" > 자바스크립트 연산자</h2>
+<p>
+    자바스크립트도 데이터를 토대로 연산이 가능하다
+</p>
+<h3>산술연산</h3>
+<ul>
+    <li>/:나눗셈(몫이 나오는건 아니다)</li>
+    <li>** : 지수</li>
+    <li>++ , -- : 1증가 혹 감소</li>
+    <li>+=,-=,*=,/=,%= : 배정대입연산</li>
+</ul>
+<h2 id="ex02" style="cursor: pointer" > 비교연산자</h2>
+<ul>
+    <li> 크기비교: >,>=,<=,< </li>
+    <li> 동등비교: ==,===,!=,!== </li>
+    <li> 논리연산: &&,|| </li>
+</ul>
+
+<h3 id="ex03">3.조건연산</h3>
+<ul>
+    <li>삼항연산 :(조건)?(값):(값)</li>
+</ul>
+<script>
+    document.getElementById("ex03").onclick=function () {
+        let age=17;
+        let result = age >=18 ? '성인' : '미성년자';
+        console.log("result",result);
+
+        let data;
+        let cvtData = data ?? '없음'; //앞에 있는게 없는경우 뒤에걸로 결과값 리턴
+        console.log();
+    }
+</script>
+
+
+
+<script>
+    document.getElementById("ex01").onclick=function () {
+        console.log(3**4);
+        let num =10;
+        num++;
+        num--;
+        num+=10;
+        console.log(num);
+    }
+
+    document.getElementById("ex02").onclick=function () {
+        console.log(10>4); //문자열 크키비교
+        console.log('관우' < '조조');
+        console.log('10'<'4');
+        console.log('문자열비교','관우'=='관우');
+        console.log('문자열과 숫자 비교 ==', '1111' == 1111); //타입이 다른
+        console.log('문자열과 숫자 비교 ===', '1111' === 1111); //타입변환을 안하기때문에 타입까지 맞아야 true
+    }
+
+</script>
+</body>
+</html>
