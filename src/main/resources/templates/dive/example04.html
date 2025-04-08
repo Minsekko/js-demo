@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h2>자바스크립트에서 제공되는 함수들</h2>
+<h3>Number</h3>
+<ul>
+    <li>Number.isFinite()</li>
+    <li>Number.isInteger()</li>
+    <li>Number.isNan() : </li>
+    <li>Number.parseFloat</li>
+    <li>Number.parseInt</li>
+</ul>
+<ul>
+    <li>Number.prototype.toExponential()</li>
+    <li>Number.prototype.toFixed():소수점 이하 자릿수 고정처리해서 나타내준다</li>
+    <li>Number.prototype.toPrecision</li>
+    <li>Number.prototype.toString()</li>
+</ul>
+<script>
+    console.log(3,Number.isFinite(3));
+    console.log(3/0,Number.isFinite(3/0));
+    console.log(3.14,Number.isInteger(3.14));
+    console.log('1d'*9,Number.isInteger(3.14));
+    console.log("3.14",Number.parseFloat("3.14"));
+
+    console.log(Number.parseFloat("3"));
+    console.log(Number.parseInt("3.914"));
+    console.log(Number.parseInt(4.9144));
+
+    let totalMinute = 179;
+    console.log(totalMinute/60,totalMinute%60);
+    console.log(Number.parseInt(totalMinute/60),totalMinute%60);
+
+    let d1 = 4232.843;
+    let d2 = 421;
+    console.log(d1.toFixed(1));
+    console.log(d2.toFixed(1));
+</script>
+</body>
+</html>

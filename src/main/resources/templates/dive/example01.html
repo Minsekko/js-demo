@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h1>자바스크립트 객체</h1>
+<p>
+    자바스크립트도 객체지향언어, 객체 사용 가능
+    일단 자바나, c++ 같은 객체지향언어는 사용하고자 하는
+    객체를 클래스로 미리 정의를 내리고 new 연산자로 생성하게 만들어서
+    사용하는게 일반적이지만,
+</p>
+<p>
+    자바스크립트 사전 정의 없이 바로 객체를 만들수 있다
+    (물론 타 언어같이 class 를 이용하는것도 가능하다
+</p>
+<script>
+    let data = {
+        name : '루피',
+        age : 19,
+        sayHello : function () {
+            console.log("안녕 난 "+this.name+"이라고해 해적왕이 될거야!!!!");
+        }
+    };
+    console.log(data.name);
+    console.log(data.age);
+    data.sayHello();
+    //자바스크립트 객체는 동적으로 속성추가가 가능하다.
+    data.address = '이스트 블루 풍차마을';
+    data.sayGoodbye = function (){
+        console.log('내이름을 기억해!'+this.name+"!!!")
+    }
+    data.sayGoodbye();
+
+    console.log(data['name']);
+    data['sayGoodbye']();
+</script>
+</body>
+</html>

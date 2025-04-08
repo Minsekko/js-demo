@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <h2>자바스크립트의 배열</h2>
+    <p>
+        자바스크립트도 배열이란게 존재한다. 배열도 사용하는게 좀 독특하다.
+    </p>
+<script>
+    let ar = [];
+    console.log(ar);
+    let nums = [1,3,4,5];
+    let names = ['루피','조로'];
+    console.log(names, names.length);
+    names[100] = '우솝';
+    let confusion =['루피',function (a,b){
+       return a + b;
+    }];
+    console.log(confusion[0]);
+    confusion[1](2,4);
+    let pick = confusion[1];
+    pick(3,5);
+
+    //=============================================
+    const array = [3,343,434,123,6,8,12];
+
+    let sum = 0;
+    for(let i=0; i<array.length; i++) {
+        console.log(array[i]);
+        sum += array[i];
+    }
+    console.log(sum);
+
+    console.log("========================");
+
+    for(let one of array) {  //in,of 차이
+        console.log(one);
+    }
+
+</script>
+</body>
+</html>

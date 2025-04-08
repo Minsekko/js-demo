@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h2>자바스크립트 객체만들기</h2>
+    <p>
+        객체를 만들때 {속성이름:속성값,속성이름:속성값} 이렇게 만드는게 일반적인데, 이걸 특정상황에서 축약이 가능하다
+    </p>
+<p>
+    객체 속성의 값으로 변수를 사용하는 경우에만 값
+</p>
+<script>
+
+    function add(obj) {
+        return obj.one + obj.other;
+    }
+    let r = add({
+        one :11111122222,
+        other:10
+    });
+    console.log(r);
+
+
+    let name='윤형호';
+    let age = 19;
+
+    let obj = {
+        name : name, age : age
+    };
+    console.log(obj.name);
+    console.log(obj.age);
+    console.log(obj.address);
+
+    let obj2 = {name,age};
+    console.log(obj2.name);
+    console.log(obj2.age);
+
+    console.log(obj2['name']);
+
+    let key = 'age';
+    console.log(obj2[key]); //배열에 변수처럼 접근이 가능하다
+</script>
+
+</body>
+</html>
