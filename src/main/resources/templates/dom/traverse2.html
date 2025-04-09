@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <style>
+        .active {
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+<h1>DOM탐색</h1>
+<p>
+    특정 DOM 요소에 접근하기위해 반드시 처음부터 탐색을 할 필요 없다. 바로 접근 방법
+</p>
+<div style="width: 80%; margin: auto;">
+    <textarea id="txt" style="width: 100%; height:150px; resize:none"></textarea>
+    <p style="text-align: right">
+        <span id="txt-len">0</span> / 200
+    </p>
+</div>
+<div>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px">
+        <input type="checkbox" id="flag"/> 제목
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px">
+        <input type="checkbox" class="item" /> <span>혹시 제가 실수를 했을 까요</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px">
+        <input type="checkbox" class="item" /> <span>오늘도 유쾌한 만남이었습니다</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px">
+        <input type="checkbox" class="item"/> <span>오늘도 유쾌한 만남이었습니다</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px">
+        <input type="checkbox" class="item"/> <span>만나서 반가웠습니다</span>
+    </p>
+
+</div>
+<script>
+
+    const $items = Array.from(document.getElementsByClassName("item"));
+    //배열이 아니기 때문에 유사배열을 바꾸어 주고 고차함수를 사용하게 만들어준다
+    const $flag = document.getElementById("flag");
+
+    $flag.onchange = function () {
+        $items.forEach(function (one) {
+            one.checked = $flag.checked;
+        });
+    }
+    // every, some
+    $items.forEach(function(one) {
+        one.onchange = function() {
+            if(this.checked) {
+                $flag.checked = $items.every(function(one){
+                    return one.checked;
+                });
+                this.parentNode.className = 'active';
+            } else {
+                $flag.checked = false;
+                this.parentNode.className = '';
+            }
+        };
+    });
+
+    /*
+    document.getElementById("flag").onchange = function () {
+        console.log(this.checked);
+        for(let one of document.getElementsByClassName("item")) {
+            one.checked = this.checked;
+        }
+    }
+
+    cnt = 0;
+    for(let one of document.getElementsByClassName("item")) {
+        one.onchange = function () {
+            if (!this.checked) {
+                document.getElementById("flag").checked = false;
+            } else {
+                for (let one of document.getElementById("flag").checked) {
+                    cnt ++;
+                }
+                if (cnt > 1) {
+                    document.getElementById("flag").checked = true;
+                }
+            }
+        }
+    }
+     */
+
+    console.log(document.body.children[2].firstElementChild);
+    console.log(document.getElementById("txt"));
+    console.log(document.getElementById("txt").parentElement.style.margin);
+
+    document.getElementById("txt").onkeyup = function () {
+        console.log(this.value, typeof this.value, this.value.length);
+        //this.nextElementSibling.innerHTML = this.value.length + " / 100";
+        if (this.value.length > 100) {
+            window.alert(message = "100자 이상 못넣어");
+            this.value = this.value.substring(0,100);
+        } else {
+            document.getElementById("txt-len").innerHTML = this.value.length;
+        }
+    }
+
+</script>
+
+</body>
+</html>

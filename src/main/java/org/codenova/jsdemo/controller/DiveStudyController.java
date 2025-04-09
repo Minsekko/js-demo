@@ -31,4 +31,25 @@ public class DiveStudyController {
     public String example05(){
         return "dive/example05";
     }
+
+    @GetMapping("/example06")
+    public String example06(){
+        return "dive/example06";
+    }
+
+    @GetMapping("/example07")
+    public String example07(){
+        return "dive/example07";
+    }
+
+    @GetMapping("/example08")
+    public String example08(){
+        return "dive/example08";
+    }
+
+    @GetMapping("/example09")
+    public String example09(){
+        return "dive/example09";
+    }
+
 }
